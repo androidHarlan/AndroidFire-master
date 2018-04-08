@@ -1,6 +1,7 @@
 package com.jaydenxiao.androidfire.ui.news.model;
 
 import com.jaydenxiao.androidfire.api.Api;
+
 import com.jaydenxiao.androidfire.api.HostType;
 import com.jaydenxiao.androidfire.bean.GirlData;
 import com.jaydenxiao.androidfire.bean.PhotoGirl;
@@ -21,7 +22,7 @@ public class PhotosListModel implements PhotoListContract.Model{
     @Override
     public Observable<List<PhotoGirl>> getPhotosListData(int size, int page) {
         return Api.getDefault(HostType.GANK_GIRL_PHOTO)
-                .getPhotoList(Api.getCacheControl(),size, page)
+                .getPhotoList(size, page)
                 .map(new Func1<GirlData, List<PhotoGirl>>() {
                     @Override
                     public List<PhotoGirl> call(GirlData girlData) {

@@ -6,9 +6,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.jaydenxiao.androidfire.R;
 import com.jaydenxiao.androidfire.app.AppConstant;
 import com.jaydenxiao.androidfire.bean.NewsChannelTable;
@@ -20,6 +22,7 @@ import com.jaydenxiao.androidfire.ui.main.presenter.NewsMainPresenter;
 import com.jaydenxiao.androidfire.utils.MyUtils;
 import com.jaydenxiao.common.base.BaseFragment;
 import com.jaydenxiao.common.base.BaseFragmentAdapter;
+import com.jaydenxiao.common.commonutils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +77,8 @@ public class NewsMainFragment extends BaseFragment<NewsMainPresenter,NewsMainMod
 
     @Override
     public void returnMineNewsChannels(List<NewsChannelTable> newsChannelsMine) {
+        Log.e("backinfo","数据ssssssssssssssss："+new Gson().toJson(newsChannelsMine));
+        LogUtils.loge("backinfo","获取数据：dddddddddddddddd"+new Gson().toJson(newsChannelsMine));
         if(newsChannelsMine!=null) {
             List<String> channelNames = new ArrayList<>();
             List<Fragment> mNewsFragmentList = new ArrayList<>();
